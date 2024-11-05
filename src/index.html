@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Products Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Beauty Products Catalog</h1>
+        <nav>
+            <button class="button" onclick="window.location.href='index.html'">Home</button>
+            <button class="button" onclick="window.location.href='cart.html'">Cart</button>
+            <button class="button" onclick="window.location.href='wishlist.html'">Wishlist</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <button class="button" id="loadProducts">Load Products</button>
+        </div>
+
+        <div class="filters-container">
+            <div class="filters-row">
+                <div class="filter-group">
+                    <label>Brand:</label>
+                    <select id="brandFilter">
+                        <option value="">All Brands</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Category:</label>
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Price Range:</label>
+                    <select id="priceFilter">
+                        <option value="">All Prices</option>
+                        <option value="0-10">Under $10</option>
+                        <option value="10-20">$10 - $20</option>
+                        <option value="20-30">$20 - $30</option>
+                        <option value="30+">$30+</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filters-row">
+                <div class="filter-group">
+                    <label>Sort By:</label>
+                    <select id="sortFilter">
+                        <option value="">Default</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="name-asc">Name: A to Z</option>
+                        <option value="name-desc">Name: Z to A</option>
+                        <option value="rating-desc">Highest Rated</option>
+                    </select>
+                </div>
+                <button class="button" id="resetFilters">Reset All Filters</button>
+            </div>
+            <div id="activeFilters" class="active-filters"></div>
+        </div>
+
+        <div id="loading" class="loading">Loading...</div>
+        <div id="productList" class="product-grid"></div>
+        <div id="pagination" class="pagination"></div>
+    </main>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalProductDetails"></div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
