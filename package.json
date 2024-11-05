@@ -4,12 +4,40 @@
   "description": "Beauty Finder Electron App",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder",
+    "make": "electron-builder --dir"
   },
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
-    "axios": "^1.4.0",
-    "electron": "^24.3.0"
+    "axios": "^1.4.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.5.0",
+    "electron": "^24.3.0",
+    "electron-builder": "^24.3.0",
+    "electron-packager": "^17.1.2"
+  },
+  "build": {
+    "appId": "com.yourname.beautyfinder",
+    "productName": "Beauty Finder",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   }
 }
